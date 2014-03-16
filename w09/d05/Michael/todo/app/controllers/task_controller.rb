@@ -1,7 +1,7 @@
 
 class TaskController < ApplicationController
   def index   
-  @tasks = Task.all 
+  @tasks = Task.order("id")
   end
 
   def loadpage

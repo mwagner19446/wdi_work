@@ -6,5 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-task1 = Task.create(task: 'Do Laundry')
-task2 = Task.create(task: 'Make Dinner Reservations')
+# task1 = Task.create(task: 'Do Laundry')
+# task2 = Task.create(task: 'Make Dinner Reservations')
+
+
+i=0
+10000.times{
+  Task.create(task: 'Task '+i.to_s)
+  i+=1
+}
