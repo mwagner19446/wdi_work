@@ -5,5 +5,13 @@ Task: <input type="text" name="task"><br>
 <button>Create</button>
 </Form>
 
-<div id="list"></div>
+<div id="list">
+  <%@tasks.each do |task| %>
+    <li id="<%=task.id%>" <%=task.done ? "class=strikethrough" :nil %> >
+    <%=task.task%>
+    <input type="checkbox" <%=task.done ? "checked=true" : nil %> >
+    <span>x<span>
+    </li>
+  <%end%>
+</div>
 

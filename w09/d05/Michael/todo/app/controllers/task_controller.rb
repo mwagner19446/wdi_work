@@ -1,6 +1,7 @@
 
 class TaskController < ApplicationController
-  def index    
+  def index   
+  @tasks = Task.all 
   end
 
   def loadpage
@@ -21,7 +22,7 @@ class TaskController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    @task.done = {done: crossOut}
+    @task.update(done: params[:done])
     render json: @task
   end
 

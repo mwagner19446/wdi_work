@@ -13,7 +13,6 @@ function loadPage() {
       $(this).parent().toggleClass("strikethrough")
       var crossOut; 
       ($(this).parent().hasClass("strikethrough")==true) ? crossOut = true: crossOut = false; 
-
       $.ajax({
         type: "PUT",
         url: "/task/"+$(this).parent().attr("id"),
@@ -30,7 +29,7 @@ function loadPage() {
 
   });
 };
-loadPage();
+// loadPage();
 
 $("button").click(function(e){
   e.preventDefault()
