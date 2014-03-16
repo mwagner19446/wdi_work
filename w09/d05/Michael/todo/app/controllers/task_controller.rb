@@ -5,7 +5,7 @@ class TaskController < ApplicationController
   end
 
   def loadpage
-    render json: Task.all
+    render json: Task.order("id")
   end 
 
   def create

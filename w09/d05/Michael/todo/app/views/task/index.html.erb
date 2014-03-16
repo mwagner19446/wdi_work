@@ -6,12 +6,12 @@ Task: <input type="text" name="task"><br>
 </Form>
 
 <div id="list">
-  <%@tasks.each do |task| %>
+<!--   <%@tasks.each do |task| %>
     <li id="<%=task.id%>" <%=task.done ? "class=strikethrough" :nil %> >
     <%=task.task%>
     <input type="checkbox" <%=task.done ? "checked=true" : nil %> >
-    <span>x<span>
+    <button class="delete">x</button>
     </li>
-  <%end%>
+  <%end%> -->
 </div>
 
