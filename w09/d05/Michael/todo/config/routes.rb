@@ -4,7 +4,6 @@ Todo::Application.routes.draw do
 
   resources :task, only: [:destroy, :update] do 
     collection do
-      get "loadpage"
       post "create"
     end 
   end 
