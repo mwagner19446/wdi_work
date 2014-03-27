@@ -10,20 +10,28 @@ Todo.prototype.complete = function(bool) {
   this.done = bool;
 }
 
+
 function buildLI(todo) {
-  var li = $("<li>" + todo.task + "</li>");
-  var checkbox = $("<input />", { type: "checkbox" });
-
-  li.append(checkbox);
-  li.append($("<span>&times;</span>"));
-
-  if (todo.done) {
-    checkbox.prop("checked", true);
-    li.addClass("done");
-  };
-
-  return li;
+  var template = $("script.template").html();
+  var rendered = _.template(template, { todo: todo }); 
+  return $(rendered)
 };
+
+//OLD: 
+// function buildLI(todo) {
+//   var li = $("<li>" + todo.task + "</li>");
+//   var checkbox = $("<input />", { type: "checkbox" });
+
+//   li.append(checkbox);
+//   li.append($("<span>&times;</span>"));
+
+//   if (todo.done) {
+//     checkbox.prop("checked", true);
+//     li.addClass("done");
+//   };
+
+//   return li;
+// };
 
 function attachListeners(li, todo) {
   li.find("input[type='checkbox']").on("change", function() {
