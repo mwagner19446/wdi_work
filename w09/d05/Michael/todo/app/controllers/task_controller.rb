@@ -2,11 +2,8 @@
 class TaskController < ApplicationController
   def index   
   @tasks = Task.order("id")
+  @task_num = Task.maximum("id")
   end
-
-  def loadpage
-    render json: Task.order("id")
-  end 
 
   def create
     @task = Task.create(task: params[:task])

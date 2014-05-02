@@ -38,4 +38,3 @@ function ATM(initialAmounts){
       return false;
     }
   }
-}

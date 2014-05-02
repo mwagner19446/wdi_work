@@ -13,8 +13,8 @@
 <ul class="todos">
 </ul>
   <script type="template" class="template">
-    <li class="<%%= todo.done ? "done": "" %>">
-      <%%= todo.task %> 
+    <li class="<%%= todos.get('done') ? "done": "" %>">
+      <%%= todos.task %> 
       <input type="checkbox" <%%= todo.done ? "checked": "" %> />
       <span>&times:</span>
     </li>

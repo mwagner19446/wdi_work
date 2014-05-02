@@ -51,7 +51,7 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-rails (3.1.0)
+    jquery-rails (2.3.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
@@ -145,7 +145,7 @@ DEPENDENCIES
   ffaker
   jasmine
   jbuilder (~> 1.2)
-  jquery-rails
+  jquery-rails (~> 2.3.0)
   pg
   pry-rails
   rails (= 4.0.3)

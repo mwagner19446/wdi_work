@@ -11,7 +11,7 @@ for (var i = 0; i < colors.length; i++){
   li = document.createElement("li");  
   // Step 2: Populate the Element
   li.innerText = "I Love " + colors[i];
-  // Step 3: Style the Element
+  // Step 3: Style the Elementx
   li.style.color = colors[i];
   // Step 4: Place the Element
   list.insertAdjacentElement("beforeend",li);

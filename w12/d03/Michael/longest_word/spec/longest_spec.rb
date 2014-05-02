@@ -5,8 +5,7 @@ require_relative '../lib/longest'
 
 describe "longest_word" do
   it "finds the longest word" do
-      expect(longest_word("Beware the Jubjub bird, and shun
-      The frumious Bandersnatch!")).to eq("Bandersnatch")
+      expect(logest_word("Beware the Jubjub bird, and shun The frumious Bandersnatch!")).to eq("Bandersnatch")
   end
 
   it "ignores punctuation" do

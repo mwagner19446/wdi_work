@@ -9,9 +9,10 @@
 # task1 = Task.create(task: 'Do Laundry')
 # task2 = Task.create(task: 'Make Dinner Reservations')
 
+Task.delete_all
 
-i=0
-10000.times{
+i=1
+10.times{
   Task.create(task: 'Task '+i.to_s)
   i+=1
 }

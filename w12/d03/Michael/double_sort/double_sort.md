@@ -12,7 +12,7 @@ You can use standard library sort functions, and should assume that all inputs w
 
 #### Examples (input => output):
 
-["sugar", "butter", "egg"] 
+["sugar", "butter", "egg"]
 => ["butter", "egg", "sugar"]
 
 ["12", "10", "3", "4", "1"]

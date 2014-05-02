@@ -1,64 +1,58 @@
+require 'pry'
 class Hand
+
   def initialize(cards)
     @cards = cards
   end
 
   def values
-    myfavoritestnumbersintheworld = []
-    @cards.each do |mycard|
-      value = mycard[0]
+    card_values = Array.new
+    key = {A:1, T:10, J:11,Q:12, K:13}
 
-                if value == "A"
+    @cards.each do |card|
+      value = card[0]
+        if key[value.to_sym] 
+          card_values << key[value.to_sym]
+        else 
+          card_values << value.to_i
+        end 
+    end 
 
-  myfavoritestnumbersintheworld << 1
-  elsif value == "T"
-  myfavoritestnumbersintheworld << 10
-
-
-  elsif value == "J"
-  myfavoritestnumbersintheworld.push(11)
-  elsif value =="Q"
-  myfavoritestnumbersintheworld << 12
-  elsif value == "K"
-  myfavoritestnumbersintheworld.push(13)
-  else
-  myfavoritestnumbersintheworld.push(value.to_i)
-  end
-    end
-    myfavoritestnumbersintheworld
+    return card_values
   end
 
   def suits
-    mycardarray = Array.new
-    for card in @cards do
-    mycardarray << card.split("")[1]
-    end
-    return mycardarray
-  end
+    card_suits = Array.new
 
+    @cards.each do |card|
+      card_suits << card[1]
+    end
+
+    return card_suits
+  end
+  
+  # Criteria for Straight: 
+  # 1) Unique values
+  # 2) Median value is also the mean
   def straight?
     ordered_values = values.sort
-    is_straight = true
-    ordered_values.each_with_index do |value, index| 
-    if index > 0
-      if value != (ordered_values[index - 1] + 1)
-    is_straight = false
-    end
-      end
-    end
-    is_straight
+    is_straight = 
+      (
+        (ordered_values.reduce(:+) == ordered_values[2] * ordered_values.length) &&
+        ordered_values.uniq == ordered_values
+      )
   end
 
   def flush?
     is_flush = true
     suits.each_with_index do |suit, index| 
-    if index > 0
-    if suit != (suits[index - 1])
-    is_flush = false
+      if index > 0
+        if suit != (suits[index - 1])
+          is_flush = false
+        end
+      end
     end
-    end
-    end
-    is_flush
+    return is_flush
   end
 
   def full_house?
@@ -74,8 +68,6 @@ class Hand
     else
       false
     end
-      
-
   end
 
   def four_of_a_kind?
@@ -122,7 +114,6 @@ class Hand
       "Not much"
     end
   end
-
 end
 
 

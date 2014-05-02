@@ -1,17 +1,25 @@
-<h1>To Do</h1>
-
-<Form>
-Task: <input type="text" name="task"><br>
-<button>Create</button>
-</Form>
-
-<div id="list">
-<%@tasks.each do |task| %>
-    <li id="<%=task.id%>" <%=task.done ? "class=strikethrough" :nil %> >
-    <%=task.task%>
-    <input type="checkbox" <%=task.done ? "checked=true" : nil %> >
-    <button class="delete">delete</button>
-    </li>
-  <%end%> 
+<h1>GSD</h1>
+<div id="input-panel">
+  <div id ="input">
+    <Form>
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="text" name="task" size="50">
+      <button>Create</button>
+    </Form>
+  </div>
 </div>
 
+<div id="list-panel">
+  <ul id="sortable">
+  <%@tasks.each do |task| %>
+      <li id="<%=task.id%>" class="ui-state-default" <%=task.done ? "class=strikethrough" :nil %> >
+      <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+      <%=task.task%>
+      <input type="checkbox" <%=task.done ? "checked=true" : nil %> >
+      <button class="delete">delete</button>
+      </li>
+    <%end%> 
+  </ul>
+</div>
+
+<div id="max-num"><%=@task_num%></div>

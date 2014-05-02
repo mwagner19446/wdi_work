@@ -1,1 +1,29 @@
-<h1>TEST</h1>
+<h1>Watchio Movies</h1>
+
+<form>
+  <label>
+    Movie
+    <input type="text" name="title" />
+  </label>
+  <button>Add Movie</button>
+</form>
+
+
+
+
+<ul class="movies">
+</ul>
+
+
+
+
+
+
+<script type="template" class="template">
+  <li class="<%%=movie.get('seen') ? "seen" : "" %>" >
+    <img src='<%%= movie.get('poster') %>' height=70 width=60 />
+    <%%= movie.get('title')%>
+    <input type="checkbox" <%% movie.seen ? "checked": ""%>/>
+    <span>&times:</span>
+  </li>
+</script>

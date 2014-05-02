@@ -1,11 +1,16 @@
 class MoviesController < ApplicationController
 
   def index
+    @movies = Movie.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @movies }
+    end
+
   end 
 
   def create
     @movie = Movie.new(movie_params)
-    binding.pry
     @movie.poster = moviePoster(@movie.title)
 
 
@@ -19,7 +24,6 @@ class MoviesController < ApplicationController
   def moviePoster(title)
     split_title = title.gsub(" ","%20")
     poster = JSON(HTTParty.get("http://www.omdbapi.com/?t=#{split_title}") )
-    binding.pry
     return poster = poster["Poster"]
   end
 
